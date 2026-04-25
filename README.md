@@ -12,6 +12,13 @@ Smart Logging: A custom logging system that creates an error.log only when an ex
 
 AI Support: Optional integration with OpenAI (GPT-4o) via API Key for advanced document analysis and description.
 
+# Why a wrapper?
+While Microsoft MarkItDown is a powerful library, it is primarily designed for Python environments and command-line usage. This can be a barrier for many users who aren't familiar with Python or terminal-based workflows.
+
+I created this portable Windows wrapper to make this conversion system accessible to everyone—no Python installation or coding skills required.
+
+For me, this tool is essential for an AI-first workflow: by converting complex documents into clean Markdown, I can provide AI models with optimized, structured data. This not only improves the quality of AI responses but also significantly reduces token consumption compared to processing raw PDF or Word files.
+
 # Download binary
 https://github.com/mdmiko/markitdown-win/releases
 
