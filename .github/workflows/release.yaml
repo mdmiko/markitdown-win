@@ -10,7 +10,12 @@ permissions:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        # Questo farà girare due macchine in parallelo
+        architecture: [x64, x86]
     runs-on: windows-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -19,7 +24,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-        architecture: x64
+        architecture: ${{ matrix.architecture }}
 
     - name: Install dependencies
       run: |
@@ -29,19 +34,21 @@ jobs:
 
     - name: Build Executables
       run: |
-        # Nomi file originali
+        # Usiamo i nomi standard per i file interni
         pyinstaller --onefile --console --clean --name markitdown-cli markitdown-cli.py
         pyinstaller --onefile --noconsole --clean --name launcher launcher.py
 
     - name: Create ZIP Archive
       shell: pwsh
       run: |
-        # Crea uno zip contenente entrambi i file dalla cartella dist
-        Compress-Archive -Path dist/markitdown-cli.exe, dist/launcher.exe -DestinationPath markitdown-win-x64.zip
+        # Lo ZIP avrà il nome dell'architettura (es. markitdown-win-x64.zip)
+        # Ma dentro i file si chiameranno sempre markitdown-cli.exe e launcher.exe
+        Compress-Archive -Path dist/markitdown-cli.exe, dist/launcher.exe -DestinationPath markitdown-win-${{ matrix.architecture }}.zip
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
-        files: markitdown-win-x64.zip
+        # Carica il file zip specifico di questa architettura
+        files: markitdown-win-${{ matrix.architecture }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
