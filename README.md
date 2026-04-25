@@ -1,4 +1,4 @@
-#MarkItDown for Windows
+# MarkItDown for Windows
 
 It's a suite of two portable Windows tools based on the Microsoft MarkItDown library. 
 It allows you to convert local files (PDF, DOCX, XLSX, images, audio) and web content (generic URLs and YouTube transcripts) into clean, optimized Markdown files—without requiring a Python installation on the host system.
@@ -28,12 +28,13 @@ You can verify the source code yourself or run the script directly from Python i
 # Installation and build
 The project includes an automation script to manage the development environment and compilation.
 
-To build yourself, clone the repository:
+### To build yourself, clone the repository:
 
-Bash
 git clone https://github.com/mdmiko/markitdown-win.git
+
 cd markitdown-win
-Run the Build:
+
+### Run the Build:
 Execute build.bat. If a virtual environment (venv) is not detected, the script will offer to create it and install all dependencies from requirements.txt automatically.
 
 build.bat cli: Compiles only the CLI engine.
@@ -45,7 +46,6 @@ build.bat: Compiles both.
 CLI usage
 To convert a file or URL via terminal:
 
-Bash
 # Convert a local file
 dist\markitdown-cli.exe document.pdf
 
