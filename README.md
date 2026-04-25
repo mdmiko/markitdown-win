@@ -1,4 +1,7 @@
-a suite of portable Windows tools based on the Microsoft MarkItDown library. It allows you to convert local files (PDF, DOCX, XLSX, images, audio) and web content (generic URLs and YouTube transcripts) into clean, optimized Markdown files—without requiring a Python installation on the host system.
+#MarkItDown for Windows
+
+It's a suite of two portable Windows tools based on the Microsoft MarkItDown library. 
+It allows you to convert local files (PDF, DOCX, XLSX, images, audio) and web content (generic URLs and YouTube transcripts) into clean, optimized Markdown files—without requiring a Python installation on the host system.
 
 Key features
 CLI Engine (markitdown-cli.exe): A powerful command-line tool supporting both local file paths and web URLs.
@@ -12,7 +15,7 @@ AI Support: Optional integration with OpenAI (GPT-4o) via API Key for advanced d
 Installation and build
 The project includes an automation script to manage the development environment and compilation.
 
-Clone the repository:
+To build yourself, clone the repository:
 
 Bash
 git clone https://github.com/mdmiko/markitdown-win.git
