@@ -1,6 +1,6 @@
 # MarkItDown wrapper for Windows
 
-It's a suite of two portable Windows tools based on the Microsoft MarkItDown library. 
+It's a suite of two portable Windows tools based on the (Microsoft MarkItDown)[https://github.com/microsoft/markitdown] library. 
 It allows you to convert local files (PDF, DOCX, XLSX, images, audio) and web content (generic URLs and YouTube transcripts) into clean, optimized Markdown files—without requiring a Python installation on the host system.
 
 Key features
