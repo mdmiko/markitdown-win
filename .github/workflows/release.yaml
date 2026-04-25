@@ -10,11 +10,7 @@ permissions:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        architecture: [x64, x86]
     runs-on: windows-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -23,7 +19,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-        architecture: ${{ matrix.architecture }}
+        architecture: x64
 
     - name: Install dependencies
       run: |
@@ -33,31 +29,19 @@ jobs:
 
     - name: Build Executables
       run: |
-        pyinstaller --onefile --console --clean --name markitdown-cli-${{ matrix.architecture }} markitdown-cli.py
-        pyinstaller --onefile --noconsole --clean --name launcher-${{ matrix.architecture }} launcher.py
+        # Nomi file originali
+        pyinstaller --onefile --console --clean --name markitdown-cli markitdown-cli.py
+        pyinstaller --onefile --noconsole --clean --name launcher launcher.py
 
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: builds-${{ matrix.architecture }}
-        path: dist/*.exe
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download all artifacts
-      uses: actions/download-artifact@v4
-      with:
-        path: all-builds
-        merge-multiple: true
+    - name: Create ZIP Archive
+      shell: pwsh
+      run: |
+        # Crea uno zip contenente entrambi i file dalla cartella dist
+        Compress-Archive -Path dist/markitdown-cli.exe, dist/launcher.exe -DestinationPath markitdown-win-x64.zip
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
-        files: all-builds/*.exe
-        # Questo genera una release "bozza" così puoi scriverci le note prima di pubblicarla
-        draft: false 
-        prerelease: false
+        files: markitdown-win-x64.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
