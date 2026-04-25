@@ -33,9 +33,6 @@ Bash
 # Convert a local file
 dist\markitdown-cli.exe document.pdf
 
-# Transcribe a YouTube video
-dist\markitdown-cli.exe https://www.youtube.com/watch?v=VIDEO_ID
-
 # Enable debug mode and specify output
 dist\markitdown-cli.exe input.docx -o output.md -d
 Project structure
