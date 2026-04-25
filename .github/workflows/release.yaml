@@ -34,21 +34,17 @@ jobs:
 
     - name: Build Executables
       run: |
-        # Usiamo i nomi standard per i file interni
-        pyinstaller --onefile --console --clean --name markitdown-cli markitdown-cli.py
-        pyinstaller --onefile --noconsole --clean --name launcher launcher.py
+        pyinstaller --onefile --console --clean --collect-data magika --name markitdown-cli markitdown-cli.py
+        pyinstaller --onefile --noconsole --clean --collect-data magika --name launcher launcher.py
 
     - name: Create ZIP Archive
       shell: pwsh
       run: |
-        # Lo ZIP avrà il nome dell'architettura (es. markitdown-win-x64.zip)
-        # Ma dentro i file si chiameranno sempre markitdown-cli.exe e launcher.exe
         Compress-Archive -Path dist/markitdown-cli.exe, dist/launcher.exe -DestinationPath markitdown-win-${{ matrix.architecture }}.zip
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
-        # Carica il file zip specifico di questa architettura
         files: markitdown-win-${{ matrix.architecture }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
