@@ -12,7 +12,20 @@ Smart Logging: A custom logging system that creates an error.log only when an ex
 
 AI Support: Optional integration with OpenAI (GPT-4o) via API Key for advanced document analysis and description.
 
-Installation and build
+# Download binary
+https://github.com/mdmiko/markitdown-win/releases
+
+⚠️ Windows SmartScreen Notice
+Since this is an open-source project and the executables are not digitally signed, Windows may show a "SmartScreen" warning.
+
+To run the app:
+Click on "More info".
+Click on "Run anyway".
+
+You can verify the source code yourself or run the script directly from Python if you prefer not to use the pre-compiled binaries.
+
+
+# Installation and build
 The project includes an automation script to manage the development environment and compilation.
 
 To build yourself, clone the repository:
