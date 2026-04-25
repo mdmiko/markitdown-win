@@ -1,4 +1,4 @@
-# MarkItDown for Windows
+# MarkItDown wrapper for Windows
 
 It's a suite of two portable Windows tools based on the Microsoft MarkItDown library. 
 It allows you to convert local files (PDF, DOCX, XLSX, images, audio) and web content (generic URLs and YouTube transcripts) into clean, optimized Markdown files—without requiring a Python installation on the host system.
@@ -51,7 +51,9 @@ dist\markitdown-cli.exe document.pdf
 
 # Enable debug mode and specify output
 dist\markitdown-cli.exe input.docx -o output.md -d
+
 Project structure
+
 markitdown-cli.py: Core logic for conversion and input/output management.
 
 launcher.py: Graphical interface built with customtkinter and tkinterdnd2.
