@@ -23,6 +23,7 @@ For me, this tool is essential for an AI-first workflow: by converting complex d
 https://github.com/mdmiko/markitdown-win/releases
 
 ⚠️ Windows SmartScreen Notice
+
 Since this is an open-source project and the executables are not digitally signed, Windows may show a "SmartScreen" warning.
 
 To run the app:
