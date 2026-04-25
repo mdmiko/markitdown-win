@@ -5,8 +5,6 @@ CLI Engine (markitdown-cli.exe): A powerful command-line tool supporting both lo
 
 GUI Launcher (launcher.exe): An intuitive graphical interface with Drag & Drop support for quick conversions.
 
-YouTube Transcription: Native integration to extract subtitles and convert them to Markdown (requires available subtitles on the video).
-
 Smart Logging: A custom logging system that creates an error.log only when an exception occurs, and an optional conversion.log for debugging.
 
 AI Support: Optional integration with OpenAI (GPT-4o) via API Key for advanced document analysis and description.
@@ -17,8 +15,8 @@ The project includes an automation script to manage the development environment 
 Clone the repository:
 
 Bash
-git clone https://github.com/your-username/PyExe-MarkItDown.git
-cd PyExe-MarkItDown
+git clone https://github.com/mdmiko/markitdown-win.git
+cd markitdown-win
 Run the Build:
 Execute build.bat. If a virtual environment (venv) is not detected, the script will offer to create it and install all dependencies from requirements.txt automatically.
 
